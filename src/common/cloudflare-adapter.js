@@ -8,6 +8,16 @@
  * `req` and `res` objects so that existing API handlers can run unchanged.
  */
 
+// Polyfill `process` at module scope so that modules which read
+// `process.env` during initialization (e.g. src/common/envs.js)
+// do not crash on cold start before the first request arrives.
+if (typeof globalThis.process === "undefined") {
+  // @ts-ignore - partial polyfill, only env is needed
+  globalThis.process = { env: {} };
+} else if (!globalThis.process.env) {
+  globalThis.process.env = {};
+}
+
 /**
  * Runs a Vercel-style handler `(req, res) => ...` inside a Cloudflare Pages
  * Function context and returns a proper `Response`.

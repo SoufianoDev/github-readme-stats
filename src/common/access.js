@@ -25,7 +25,7 @@ const guardAccess = ({ res, id, type, colors }) => {
     );
   }
 
-  const currentWhitelist = type === "gist" ? gistWhitelist : whitelist;
+  const currentWhitelist = type === "gist" ? gistWhitelist() : whitelist();
   const notWhitelistedMsg =
     type === "gist"
       ? NOT_WHITELISTED_GIST_MESSAGE

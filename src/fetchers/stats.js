@@ -1,7 +1,6 @@
 // @ts-check
 
 import axios from "axios";
-import * as dotenv from "dotenv";
 import githubUsernameRegex from "github-username-regex";
 import { calculateRank } from "../calculateRank.js";
 import { retryer } from "../common/retryer.js";
@@ -11,7 +10,13 @@ import { CustomError, MissingParamError } from "../common/error.js";
 import { wrapTextMultiline } from "../common/fmt.js";
 import { request } from "../common/http.js";
 
-dotenv.config();
+// Load .env file in Node.js environments (skipped in Cloudflare Workers).
+try {
+  const dotenv = await import("dotenv");
+  dotenv.config();
+} catch (_) {
+  // dotenv not available (e.g. Cloudflare Workers) — env vars come from context.env.
+}
 
 // GraphQL queries.
 const GRAPHQL_REPOS_FIELD = `
@@ -311,7 +316,7 @@ const fetchStats = async (
   stats.contributedTo = user.repositoriesContributedTo.totalCount;
 
   // Retrieve stars while filtering out repositories to be hidden.
-  const allExcludedRepos = [...exclude_repo, ...excludeRepositories];
+  const allExcludedRepos = [...exclude_repo, ...excludeRepositories()];
   let repoToHide = new Set(allExcludedRepos);
 
   stats.totalStars = user.repositories.nodes

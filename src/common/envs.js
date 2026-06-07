@@ -1,15 +1,18 @@
 // @ts-check
 
-const whitelist = process.env.WHITELIST
-  ? process.env.WHITELIST.split(",")
-  : undefined;
+const getWhitelist = () =>
+  process.env.WHITELIST
+    ? process.env.WHITELIST.split(",")
+    : undefined;
 
-const gistWhitelist = process.env.GIST_WHITELIST
-  ? process.env.GIST_WHITELIST.split(",")
-  : undefined;
+const getGistWhitelist = () =>
+  process.env.GIST_WHITELIST
+    ? process.env.GIST_WHITELIST.split(",")
+    : undefined;
 
-const excludeRepositories = process.env.EXCLUDE_REPO
-  ? process.env.EXCLUDE_REPO.split(",")
-  : [];
+const getExcludeRepositories = () =>
+  process.env.EXCLUDE_REPO
+    ? process.env.EXCLUDE_REPO.split(",")
+    : [];
 
-export { whitelist, gistWhitelist, excludeRepositories };
+export { getWhitelist as whitelist, getGistWhitelist as gistWhitelist, getExcludeRepositories as excludeRepositories };
