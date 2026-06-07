@@ -25,8 +25,8 @@
   </a>
   <br />
   <br />
-  <a href="https://pages.cloudflare.com/">
-    <img src="https://img.shields.io/badge/Powered%20by-Cloudflare%20Pages-F38020?style=flat-square&logo=cloudflare"/>
+  <a href="https://railway.app/">
+    <img src="https://img.shields.io/badge/Powered%20by-Railway-0B0D0E?style=flat-square&logo=railway"/>
   </a>
 </p>
 
@@ -86,9 +86,9 @@
     - [Pinning repositories](#pinning-repositories)
 - [Deploy on your own](#deploy-on-your-own)
   - [GitHub Actions (Recommended)](#github-actions-recommended)
-  - [Self-hosted (Cloudflare Pages/Other) (Recommended)](#self-hosted-cloudflare-pagesother-recommended)
+  - [Self-hosted (Railway/Other) (Recommended)](#self-hosted-railwayother-recommended)
     - [First step: get your Personal Access Token (PAT)](#first-step-get-your-personal-access-token-pat)
-    - [On Cloudflare Pages](#on-cloudflare-pages)
+    - [On Railway](#on-railway)
     - [On other platforms](#on-other-platforms)
     - [Available environment variables](#available-environment-variables)
   - [Keep your fork up to date](#keep-your-fork-up-to-date)
@@ -98,7 +98,7 @@
 # Important Notices <!-- omit in toc -->
 
 > [!IMPORTANT]
-> The public instance at `https://github-readme-stats.pages.dev/api` is best-effort and can be unreliable due to rate limits and traffic spikes (see [#1471](https://github.com/SoufianoDev/github-readme-stats/issues/1471)). We use caching to improve stability (see [common options](#common-options)), but for reliable cards we recommend [self-hosting](#deploy-on-your-own) (Cloudflare Pages or other) or using the [GitHub Actions workflow](#github-actions-recommended) to generate cards in your [profile repository](https://docs.github.com/en/account-and-profile/how-tos-profile-customization/managing-your-profile-readme).
+> The public instance at `https://github-readme-stats.up.railway.app/api` is best-effort and can be unreliable due to rate limits and traffic spikes (see [#1471](https://github.com/SoufianoDev/github-readme-stats/issues/1471)). We use caching to improve stability (see [common options](#common-options)), but for reliable cards we recommend [self-hosting](#deploy-on-your-own) (Railway or other) or using the [GitHub Actions workflow](#github-actions-recommended) to generate cards in your [profile repository](https://docs.github.com/en/account-and-profile/how-tos-profile-customization/managing-your-profile-readme).
 
 > [!IMPORTANT]
 > We're a small team, and to prioritize, we rely on upvotes :+1:. We use the Top Issues dashboard for tracking community demand (see [#1935](https://github.com/SoufianoDev/github-readme-stats/issues/1935)). Do not hesitate to upvote the issues and pull requests you are interested in. We will work on the most upvoted first.
@@ -110,7 +110,7 @@ Copy and paste this into your markdown, and that's it. Simple!
 Change the `?username=` value to your GitHub username.
 
 ```md
-[![Anurag's GitHub stats](https://github-readme-stats.pages.dev/api?username=SoufianoDev)](https://github.com/SoufianoDev/github-readme-stats)
+[![Anurag's GitHub stats](https://github-readme-stats.up.railway.app/api?username=SoufianoDev)](https://github.com/SoufianoDev/github-readme-stats)
 ```
 
 > [!WARNING]
@@ -126,7 +126,7 @@ You can pass a query parameter `&hide=` to hide any specific stats with comma-se
 > Options: `&hide=stars,commits,prs,issues,contribs`
 
 ```md
-![Anurag's GitHub stats](https://github-readme-stats.pages.dev/api?username=SoufianoDev&hide=contribs,prs)
+![Anurag's GitHub stats](https://github-readme-stats.up.railway.app/api?username=SoufianoDev&hide=contribs,prs)
 ```
 
 ### Showing additional individual stats
@@ -136,7 +136,7 @@ You can pass a query parameter `&show=` to show any specific additional stats wi
 > Options: `&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage`
 
 ```md
-![Anurag's GitHub stats](https://github-readme-stats.pages.dev/api?username=SoufianoDev&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage)
+![Anurag's GitHub stats](https://github-readme-stats.up.railway.app/api?username=SoufianoDev&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage)
 ```
 
 ### Showing icons
@@ -144,7 +144,7 @@ You can pass a query parameter `&show=` to show any specific additional stats wi
 To enable icons, you can pass `&show_icons=true` in the query param, like so:
 
 ```md
-![Anurag's GitHub stats](https://github-readme-stats.pages.dev/api?username=SoufianoDev&show_icons=true)
+![Anurag's GitHub stats](https://github-readme-stats.up.railway.app/api?username=SoufianoDev&show_icons=true)
 ```
 
 ### Showing commits count for specified year
@@ -152,7 +152,7 @@ To enable icons, you can pass `&show_icons=true` in the query param, like so:
 You can specify a year and fetch only the commits that were made in that year by passing `&commits_year=YYYY` to the parameter.
 
 ```md
-![Anurag's GitHub stats](https://github-readme-stats.pages.dev/api?username=SoufianoDev&commits_year=2026)
+![Anurag's GitHub stats](https://github-readme-stats.up.railway.app/api?username=SoufianoDev&commits_year=2026)
 ```
 
 ### Themes
@@ -162,7 +162,7 @@ With inbuilt themes, you can customize the look of the card without doing any [m
 Use `&theme=THEME_NAME` parameter like so :
 
 ```md
-![Anurag's GitHub stats](https://github-readme-stats.pages.dev/api?username=SoufianoDev&show_icons=true&theme=radical)
+![Anurag's GitHub stats](https://github-readme-stats.up.railway.app/api?username=SoufianoDev&show_icons=true&theme=radical)
 ```
 
 #### All inbuilt themes
@@ -175,8 +175,8 @@ You can look at a preview for [all available themes](themes/README.md) or checko
 
 #### Responsive Card Theme
 
-[![Anurag's GitHub stats-Dark](https://github-readme-stats.pages.dev/api?username=SoufianoDev\&show_icons=true\&theme=dark#gh-dark-mode-only)](https://github.com/SoufianoDev/github-readme-stats#responsive-card-theme#gh-dark-mode-only)
-[![Anurag's GitHub stats-Light](https://github-readme-stats.pages.dev/api?username=SoufianoDev\&show_icons=true\&theme=default#gh-light-mode-only)](https://github.com/SoufianoDev/github-readme-stats#responsive-card-theme#gh-light-mode-only)
+[![Anurag's GitHub stats-Dark](https://github-readme-stats.up.railway.app/api?username=SoufianoDev\&show_icons=true\&theme=dark#gh-dark-mode-only)](https://github.com/SoufianoDev/github-readme-stats#responsive-card-theme#gh-dark-mode-only)
+[![Anurag's GitHub stats-Light](https://github-readme-stats.up.railway.app/api?username=SoufianoDev\&show_icons=true\&theme=default#gh-light-mode-only)](https://github.com/SoufianoDev/github-readme-stats#responsive-card-theme#gh-light-mode-only)
 
 Since GitHub will re-upload the cards and serve them from their [CDN](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-anonymized-urls), we can not infer the browser/GitHub theme on the server side. There are, however, four methods you can use to create dynamics themes on the client side.
 
@@ -185,13 +185,13 @@ Since GitHub will re-upload the cards and serve them from their [CDN](https://do
 We have included a `transparent` theme that has a transparent background. This theme is optimized to look good on GitHub's dark and light default themes. You can enable this theme using the `&theme=transparent` parameter like so:
 
 ```md
-![Anurag's GitHub stats](https://github-readme-stats.pages.dev/api?username=SoufianoDev&show_icons=true&theme=transparent)
+![Anurag's GitHub stats](https://github-readme-stats.up.railway.app/api?username=SoufianoDev&show_icons=true&theme=transparent)
 ```
 
 <details>
 <summary>:eyes: Show example</summary>
 
-![Anurag's GitHub stats](https://github-readme-stats.pages.dev/api?username=SoufianoDev\&show_icons=true\&theme=transparent)
+![Anurag's GitHub stats](https://github-readme-stats.up.railway.app/api?username=SoufianoDev\&show_icons=true\&theme=transparent)
 
 </details>
 
@@ -200,13 +200,13 @@ We have included a `transparent` theme that has a transparent background. This t
 You can use the `bg_color` parameter to make any of [the available themes](themes/README.md) transparent. This is done by setting the `bg_color` to a color with a transparent alpha channel (i.e. `bg_color=00000000`):
 
 ```md
-![Anurag's GitHub stats](https://github-readme-stats.pages.dev/api?username=SoufianoDev&show_icons=true&bg_color=00000000)
+![Anurag's GitHub stats](https://github-readme-stats.up.railway.app/api?username=SoufianoDev&show_icons=true&bg_color=00000000)
 ```
 
 <details>
 <summary>:eyes: Show example</summary>
 
-![Anurag's GitHub stats](https://github-readme-stats.pages.dev/api?username=SoufianoDev\&show_icons=true\&bg_color=00000000)
+![Anurag's GitHub stats](https://github-readme-stats.up.railway.app/api?username=SoufianoDev\&show_icons=true\&bg_color=00000000)
 
 </details>
 
@@ -215,15 +215,15 @@ You can use the `bg_color` parameter to make any of [the available themes](theme
 You can use [GitHub's theme context](https://github.blog/changelog/2021-11-24-specify-theme-context-for-images-in-markdown/) tags to switch the theme based on the user GitHub theme automatically. This is done by appending `#gh-dark-mode-only` or `#gh-light-mode-only` to the end of an image URL. This tag will define whether the image specified in the markdown is only shown to viewers using a light or a dark GitHub theme:
 
 ```md
-[![Anurag's GitHub stats-Dark](https://github-readme-stats.pages.dev/api?username=SoufianoDev&show_icons=true&theme=dark#gh-dark-mode-only)](https://github.com/SoufianoDev/github-readme-stats#gh-dark-mode-only)
-[![Anurag's GitHub stats-Light](https://github-readme-stats.pages.dev/api?username=SoufianoDev&show_icons=true&theme=default#gh-light-mode-only)](https://github.com/SoufianoDev/github-readme-stats#gh-light-mode-only)
+[![Anurag's GitHub stats-Dark](https://github-readme-stats.up.railway.app/api?username=SoufianoDev&show_icons=true&theme=dark#gh-dark-mode-only)](https://github.com/SoufianoDev/github-readme-stats#gh-dark-mode-only)
+[![Anurag's GitHub stats-Light](https://github-readme-stats.up.railway.app/api?username=SoufianoDev&show_icons=true&theme=default#gh-light-mode-only)](https://github.com/SoufianoDev/github-readme-stats#gh-light-mode-only)
 ```
 
 <details>
 <summary>:eyes: Show example</summary>
 
-[![Anurag's GitHub stats-Dark](https://github-readme-stats.pages.dev/api?username=SoufianoDev\&show_icons=true\&theme=dark#gh-dark-mode-only)](https://github.com/SoufianoDev/github-readme-stats#gh-dark-mode-only)
-[![Anurag's GitHub stats-Light](https://github-readme-stats.pages.dev/api?username=SoufianoDev\&show_icons=true\&theme=default#gh-light-mode-only)](https://github.com/SoufianoDev/github-readme-stats#gh-light-mode-only)
+[![Anurag's GitHub stats-Dark](https://github-readme-stats.up.railway.app/api?username=SoufianoDev\&show_icons=true\&theme=dark#gh-dark-mode-only)](https://github.com/SoufianoDev/github-readme-stats#gh-dark-mode-only)
+[![Anurag's GitHub stats-Light](https://github-readme-stats.up.railway.app/api?username=SoufianoDev\&show_icons=true\&theme=default#gh-light-mode-only)](https://github.com/SoufianoDev/github-readme-stats#gh-light-mode-only)
 
 </details>
 
@@ -234,14 +234,14 @@ You can use [GitHub's new media feature](https://github.blog/changelog/2022-05-1
 ```html
 <picture>
   <source
-    srcset="https://github-readme-stats.pages.dev/api?username=SoufianoDev&show_icons=true&theme=dark"
+    srcset="https://github-readme-stats.up.railway.app/api?username=SoufianoDev&show_icons=true&theme=dark"
     media="(prefers-color-scheme: dark)"
   />
   <source
-    srcset="https://github-readme-stats.pages.dev/api?username=SoufianoDev&show_icons=true"
+    srcset="https://github-readme-stats.up.railway.app/api?username=SoufianoDev&show_icons=true"
     media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
   />
-  <img src="https://github-readme-stats.pages.dev/api?username=SoufianoDev&show_icons=true" />
+  <img src="https://github-readme-stats.up.railway.app/api?username=SoufianoDev&show_icons=true" />
 </picture>
 ```
 
@@ -250,14 +250,14 @@ You can use [GitHub's new media feature](https://github.blog/changelog/2022-05-1
 
 <picture>
   <source
-    srcset="https://github-readme-stats.pages.dev/api?username=SoufianoDev&show_icons=true&theme=dark"
+    srcset="https://github-readme-stats.up.railway.app/api?username=SoufianoDev&show_icons=true&theme=dark"
     media="(prefers-color-scheme: dark)"
   />
   <source
-    srcset="https://github-readme-stats.pages.dev/api?username=SoufianoDev&show_icons=true"
+    srcset="https://github-readme-stats.up.railway.app/api?username=SoufianoDev&show_icons=true"
     media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
   />
-  <img src="https://github-readme-stats.pages.dev/api?username=SoufianoDev&show_icons=true" />
+  <img src="https://github-readme-stats.up.railway.app/api?username=SoufianoDev&show_icons=true" />
 </picture>
 
 </details>
@@ -404,7 +404,7 @@ Copy-paste this code into your readme and change the links.
 Endpoint: `api/pin?username=SoufianoDev&repo=github-readme-stats`
 
 ```md
-[![Readme Card](https://github-readme-stats.pages.dev/api/pin/?username=SoufianoDev&repo=github-readme-stats)](https://github.com/SoufianoDev/github-readme-stats)
+[![Readme Card](https://github-readme-stats.up.railway.app/api/pin/?username=SoufianoDev&repo=github-readme-stats)](https://github.com/SoufianoDev/github-readme-stats)
 ```
 
 ### Options
@@ -418,11 +418,11 @@ You can customize the appearance and behavior of the pinned repository card usin
 
 ### Demo
 
-![Readme Card](https://github-readme-stats.pages.dev/api/pin/?username=SoufianoDev\&repo=github-readme-stats)
+![Readme Card](https://github-readme-stats.up.railway.app/api/pin/?username=SoufianoDev\&repo=github-readme-stats)
 
 Use `show_owner` query option to include the repo's owner username
 
-![Readme Card](https://github-readme-stats.pages.dev/api/pin/?username=SoufianoDev\&repo=github-readme-stats\&show_owner=true)
+![Readme Card](https://github-readme-stats.up.railway.app/api/pin/?username=SoufianoDev\&repo=github-readme-stats\&show_owner=true)
 
 # GitHub Gist Pins
 
@@ -435,7 +435,7 @@ Copy-paste this code into your readme and change the links.
 Endpoint: `api/gist?id=bbfce31e0217a3689c8d961a356cb10d`
 
 ```md
-[![Gist Card](https://github-readme-stats.pages.dev/api/gist?id=bbfce31e0217a3689c8d961a356cb10d)](https://gist.github.com/Yizack/bbfce31e0217a3689c8d961a356cb10d/)
+[![Gist Card](https://github-readme-stats.up.railway.app/api/gist?id=bbfce31e0217a3689c8d961a356cb10d)](https://gist.github.com/Yizack/bbfce31e0217a3689c8d961a356cb10d/)
 ```
 
 ### Options
@@ -448,11 +448,11 @@ You can customize the appearance and behavior of the gist card using the [common
 
 ### Demo
 
-![Gist Card](https://github-readme-stats.pages.dev/api/gist?id=bbfce31e0217a3689c8d961a356cb10d)
+![Gist Card](https://github-readme-stats.up.railway.app/api/gist?id=bbfce31e0217a3689c8d961a356cb10d)
 
 Use `show_owner` query option to include the gist's owner username
 
-![Gist Card](https://github-readme-stats.pages.dev/api/gist?id=bbfce31e0217a3689c8d961a356cb10d\&show_owner=true)
+![Gist Card](https://github-readme-stats.up.railway.app/api/gist?id=bbfce31e0217a3689c8d961a356cb10d\&show_owner=true)
 
 # Top Languages Card
 
@@ -477,7 +477,7 @@ Copy-paste this code into your readme and change the links.
 Endpoint: `api/top-langs?username=SoufianoDev`
 
 ```md
-[![Top Langs](https://github-readme-stats.pages.dev/api/top-langs/?username=SoufianoDev)](https://github.com/SoufianoDev/github-readme-stats)
+[![Top Langs](https://github-readme-stats.up.railway.app/api/top-langs/?username=SoufianoDev)](https://github.com/SoufianoDev/github-readme-stats)
 ```
 
 ### Options
@@ -517,7 +517,7 @@ By default, only the byte count is used for determining the languages percentage
 *   `&size_weight=0&count_weight=1` - Orders by repo count
 
 ```md
-![Top Langs](https://github-readme-stats.pages.dev/api/top-langs/?username=SoufianoDev&size_weight=0.5&count_weight=0.5)
+![Top Langs](https://github-readme-stats.up.railway.app/api/top-langs/?username=SoufianoDev&size_weight=0.5&count_weight=0.5)
 ```
 
 ### Exclude individual repositories
@@ -525,7 +525,7 @@ By default, only the byte count is used for determining the languages percentage
 You can use the `&exclude_repo=repo1,repo2` parameter to exclude individual repositories.
 
 ```md
-![Top Langs](https://github-readme-stats.pages.dev/api/top-langs/?username=SoufianoDev&exclude_repo=github-readme-stats,SoufianoDev.github.io)
+![Top Langs](https://github-readme-stats.up.railway.app/api/top-langs/?username=SoufianoDev&exclude_repo=github-readme-stats,SoufianoDev.github.io)
 ```
 
 ### Hide individual languages
@@ -533,7 +533,7 @@ You can use the `&exclude_repo=repo1,repo2` parameter to exclude individual repo
 You can use `&hide=language1,language2` parameter to hide individual languages.
 
 ```md
-![Top Langs](https://github-readme-stats.pages.dev/api/top-langs/?username=SoufianoDev&hide=javascript,html)
+![Top Langs](https://github-readme-stats.up.railway.app/api/top-langs/?username=SoufianoDev&hide=javascript,html)
 ```
 
 ### Show more languages
@@ -541,7 +541,7 @@ You can use `&hide=language1,language2` parameter to hide individual languages.
 You can use the `&langs_count=` option to increase or decrease the number of languages shown on the card. Valid values are integers between 1 and 20 (inclusive). By default it was set to `5` for `normal` & `donut` and `6` for other layouts.
 
 ```md
-![Top Langs](https://github-readme-stats.pages.dev/api/top-langs/?username=SoufianoDev&langs_count=8)
+![Top Langs](https://github-readme-stats.up.railway.app/api/top-langs/?username=SoufianoDev&langs_count=8)
 ```
 
 ### Compact Language Card Layout
@@ -549,7 +549,7 @@ You can use the `&langs_count=` option to increase or decrease the number of lan
 You can use the `&layout=compact` option to change the card design.
 
 ```md
-![Top Langs](https://github-readme-stats.pages.dev/api/top-langs/?username=SoufianoDev&layout=compact)
+![Top Langs](https://github-readme-stats.up.railway.app/api/top-langs/?username=SoufianoDev&layout=compact)
 ```
 
 ### Donut Chart Language Card Layout
@@ -557,7 +557,7 @@ You can use the `&layout=compact` option to change the card design.
 You can use the `&layout=donut` option to change the card design.
 
 ```md
-[![Top Langs](https://github-readme-stats.pages.dev/api/top-langs/?username=SoufianoDev&layout=donut)](https://github.com/SoufianoDev/github-readme-stats)
+[![Top Langs](https://github-readme-stats.up.railway.app/api/top-langs/?username=SoufianoDev&layout=donut)](https://github.com/SoufianoDev/github-readme-stats)
 ```
 
 ### Donut Vertical Chart Language Card Layout
@@ -565,7 +565,7 @@ You can use the `&layout=donut` option to change the card design.
 You can use the `&layout=donut-vertical` option to change the card design.
 
 ```md
-[![Top Langs](https://github-readme-stats.pages.dev/api/top-langs/?username=SoufianoDev&layout=donut-vertical)](https://github.com/SoufianoDev/github-readme-stats)
+[![Top Langs](https://github-readme-stats.up.railway.app/api/top-langs/?username=SoufianoDev&layout=donut-vertical)](https://github.com/SoufianoDev/github-readme-stats)
 ```
 
 ### Pie Chart Language Card Layout
@@ -573,7 +573,7 @@ You can use the `&layout=donut-vertical` option to change the card design.
 You can use the `&layout=pie` option to change the card design.
 
 ```md
-[![Top Langs](https://github-readme-stats.pages.dev/api/top-langs/?username=SoufianoDev&layout=pie)](https://github.com/SoufianoDev/github-readme-stats)
+[![Top Langs](https://github-readme-stats.up.railway.app/api/top-langs/?username=SoufianoDev&layout=pie)](https://github.com/SoufianoDev/github-readme-stats)
 ```
 
 ### Hide Progress Bars
@@ -581,7 +581,7 @@ You can use the `&layout=pie` option to change the card design.
 You can use the `&hide_progress=true` option to hide the percentages and the progress bars (layout will be automatically set to `compact`).
 
 ```md
-![Top Langs](https://github-readme-stats.pages.dev/api/top-langs/?username=SoufianoDev&hide_progress=true)
+![Top Langs](https://github-readme-stats.up.railway.app/api/top-langs/?username=SoufianoDev&hide_progress=true)
 ```
 
 ### Change format of language's stats
@@ -589,38 +589,38 @@ You can use the `&hide_progress=true` option to hide the percentages and the pro
 You can use the `&stats_format=bytes` option to display the stats in bytes instead of percentage.
 
 ```md
-![Top Langs](https://github-readme-stats.pages.dev/api/top-langs/?username=SoufianoDev&stats_format=bytes)
+![Top Langs](https://github-readme-stats.up.railway.app/api/top-langs/?username=SoufianoDev&stats_format=bytes)
 ```
 
 
 ### Demo
 
-![Top Langs](https://github-readme-stats.pages.dev/api/top-langs/?username=SoufianoDev)
+![Top Langs](https://github-readme-stats.up.railway.app/api/top-langs/?username=SoufianoDev)
 
 *   Compact layout
 
-![Top Langs](https://github-readme-stats.pages.dev/api/top-langs/?username=SoufianoDev\&layout=compact)
+![Top Langs](https://github-readme-stats.up.railway.app/api/top-langs/?username=SoufianoDev\&layout=compact)
 
 *   Donut Chart layout
 
-[![Top Langs](https://github-readme-stats.pages.dev/api/top-langs/?username=SoufianoDev\&layout=donut)](https://github.com/SoufianoDev/github-readme-stats)
+[![Top Langs](https://github-readme-stats.up.railway.app/api/top-langs/?username=SoufianoDev\&layout=donut)](https://github.com/SoufianoDev/github-readme-stats)
 
 *   Donut Vertical Chart layout
 
-[![Top Langs](https://github-readme-stats.pages.dev/api/top-langs/?username=SoufianoDev\&layout=donut-vertical)](https://github.com/SoufianoDev/github-readme-stats)
+[![Top Langs](https://github-readme-stats.up.railway.app/api/top-langs/?username=SoufianoDev\&layout=donut-vertical)](https://github.com/SoufianoDev/github-readme-stats)
 
 *   Pie Chart layout
 
-[![Top Langs](https://github-readme-stats.pages.dev/api/top-langs/?username=SoufianoDev\&layout=pie)](https://github.com/SoufianoDev/github-readme-stats)
+[![Top Langs](https://github-readme-stats.up.railway.app/api/top-langs/?username=SoufianoDev\&layout=pie)](https://github.com/SoufianoDev/github-readme-stats)
 
 *   Hidden progress bars
 
-![Top Langs](https://github-readme-stats.pages.dev/api/top-langs/?username=SoufianoDev\&hide_progress=true)
+![Top Langs](https://github-readme-stats.up.railway.app/api/top-langs/?username=SoufianoDev\&hide_progress=true)
 
 
 *  Display bytes instead of percentage
 
-![Top Langs](https://github-readme-stats.pages.dev/api/top-langs/?username=SoufianoDev\&stats_format=bytes)
+![Top Langs](https://github-readme-stats.up.railway.app/api/top-langs/?username=SoufianoDev\&stats_format=bytes)
 
 # WakaTime Stats Card
 
@@ -633,7 +633,7 @@ You can use the `&stats_format=bytes` option to display the stats in bytes inste
 Change the `?username=` value to your [WakaTime](https://wakatime.com) username.
 
 ```md
-[![Harlok's WakaTime stats](https://github-readme-stats.pages.dev/api/wakatime?username=ffflabs)](https://github.com/SoufianoDev/github-readme-stats)
+[![Harlok's WakaTime stats](https://github-readme-stats.up.railway.app/api/wakatime?username=ffflabs)](https://github.com/SoufianoDev/github-readme-stats)
 ```
 
 ### Options
@@ -659,13 +659,13 @@ You can customize the appearance and behavior of the WakaTime stats card using t
 
 ### Demo
 
-![Harlok's WakaTime stats](https://github-readme-stats.pages.dev/api/wakatime?username=ffflabs)
+![Harlok's WakaTime stats](https://github-readme-stats.up.railway.app/api/wakatime?username=ffflabs)
 
-![Harlok's WakaTime stats](https://github-readme-stats.pages.dev/api/wakatime?username=ffflabs\&hide_progress=true)
+![Harlok's WakaTime stats](https://github-readme-stats.up.railway.app/api/wakatime?username=ffflabs\&hide_progress=true)
 
 *   Compact layout
 
-![Harlok's WakaTime stats](https://github-readme-stats.pages.dev/api/wakatime?username=ffflabs\&layout=compact)
+![Harlok's WakaTime stats](https://github-readme-stats.up.railway.app/api/wakatime?username=ffflabs\&layout=compact)
 
 ***
 
@@ -673,73 +673,73 @@ You can customize the appearance and behavior of the WakaTime stats card using t
 
 *   Default
 
-![Anurag's GitHub stats](https://github-readme-stats.pages.dev/api?username=SoufianoDev)
+![Anurag's GitHub stats](https://github-readme-stats.up.railway.app/api?username=SoufianoDev)
 
 *   Hiding specific stats
 
-![Anurag's GitHub stats](https://github-readme-stats.pages.dev/api?username=SoufianoDev\&hide=contribs,issues)
+![Anurag's GitHub stats](https://github-readme-stats.up.railway.app/api?username=SoufianoDev\&hide=contribs,issues)
 
 *   Showing additional stats
 
-![Anurag's GitHub stats](https://github-readme-stats.pages.dev/api?username=SoufianoDev\&show_icons=true\&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage)
+![Anurag's GitHub stats](https://github-readme-stats.up.railway.app/api?username=SoufianoDev\&show_icons=true\&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage)
 
 *   Showing icons
 
-![Anurag's GitHub stats](https://github-readme-stats.pages.dev/api?username=SoufianoDev\&hide=issues\&show_icons=true)
+![Anurag's GitHub stats](https://github-readme-stats.up.railway.app/api?username=SoufianoDev\&hide=issues\&show_icons=true)
 
 *   Shows GitHub logo instead rank level
 
-![Anurag's GitHub stats](https://github-readme-stats.pages.dev/api?username=SoufianoDev\&rank_icon=github)
+![Anurag's GitHub stats](https://github-readme-stats.up.railway.app/api?username=SoufianoDev\&rank_icon=github)
 
 *   Shows user rank percentile instead of rank level
 
-![Anurag's GitHub stats](https://github-readme-stats.pages.dev/api?username=SoufianoDev\&rank_icon=percentile)
+![Anurag's GitHub stats](https://github-readme-stats.up.railway.app/api?username=SoufianoDev\&rank_icon=percentile)
 
 *   Customize Border Color
 
-![Anurag's GitHub stats](https://github-readme-stats.pages.dev/api?username=SoufianoDev\&border_color=2e4058)
+![Anurag's GitHub stats](https://github-readme-stats.up.railway.app/api?username=SoufianoDev\&border_color=2e4058)
 
 *   Include All Commits
 
-![Anurag's GitHub stats](https://github-readme-stats.pages.dev/api?username=SoufianoDev\&include_all_commits=true)
+![Anurag's GitHub stats](https://github-readme-stats.up.railway.app/api?username=SoufianoDev\&include_all_commits=true)
 
 *   Themes
 
 Choose from any of the [default themes](#themes)
 
-![Anurag's GitHub stats](https://github-readme-stats.pages.dev/api?username=SoufianoDev\&show_icons=true\&theme=radical)
+![Anurag's GitHub stats](https://github-readme-stats.up.railway.app/api?username=SoufianoDev\&show_icons=true\&theme=radical)
 
 *   Gradient
 
-![Anurag's GitHub stats](https://github-readme-stats.pages.dev/api?username=SoufianoDev\&bg_color=30,e96443,904e95\&title_color=fff\&text_color=fff)
+![Anurag's GitHub stats](https://github-readme-stats.up.railway.app/api?username=SoufianoDev\&bg_color=30,e96443,904e95\&title_color=fff\&text_color=fff)
 
 *   Customizing stats card
 
-![Anurag's GitHub stats](https://github-readme-stats.pages.dev/api/?username=SoufianoDev\&show_icons=true\&title_color=fff\&icon_color=79ff97\&text_color=9f9f9f\&bg_color=151515)
+![Anurag's GitHub stats](https://github-readme-stats.up.railway.app/api/?username=SoufianoDev\&show_icons=true\&title_color=fff\&icon_color=79ff97\&text_color=9f9f9f\&bg_color=151515)
 
 *   Setting card locale
 
-![Anurag's GitHub stats](https://github-readme-stats.pages.dev/api/?username=SoufianoDev\&locale=es)
+![Anurag's GitHub stats](https://github-readme-stats.up.railway.app/api/?username=SoufianoDev\&locale=es)
 
 *   Customizing repo card
 
-![Customized Card](https://github-readme-stats.pages.dev/api/pin?username=SoufianoDev\&repo=github-readme-stats\&title_color=fff\&icon_color=f9f9f9\&text_color=9f9f9f\&bg_color=151515)
+![Customized Card](https://github-readme-stats.up.railway.app/api/pin?username=SoufianoDev\&repo=github-readme-stats\&title_color=fff\&icon_color=f9f9f9\&text_color=9f9f9f\&bg_color=151515)
 
 *   Gist card
 
-![Gist Card](https://github-readme-stats.pages.dev/api/gist?id=bbfce31e0217a3689c8d961a356cb10d)
+![Gist Card](https://github-readme-stats.up.railway.app/api/gist?id=bbfce31e0217a3689c8d961a356cb10d)
 
 *   Customizing gist card
 
-![Gist Card](https://github-readme-stats.pages.dev/api/gist?id=bbfce31e0217a3689c8d961a356cb10d&theme=calm)
+![Gist Card](https://github-readme-stats.up.railway.app/api/gist?id=bbfce31e0217a3689c8d961a356cb10d&theme=calm)
 
 *   Top languages
 
-![Top Langs](https://github-readme-stats.pages.dev/api/top-langs/?username=SoufianoDev)
+![Top Langs](https://github-readme-stats.up.railway.app/api/top-langs/?username=SoufianoDev)
 
 *   WakaTime card
 
-![Harlok's WakaTime stats](https://github-readme-stats.pages.dev/api/wakatime?username=ffflabs)
+![Harlok's WakaTime stats](https://github-readme-stats.up.railway.app/api/wakatime?username=ffflabs)
 
 ***
 
@@ -751,10 +751,10 @@ By default, GitHub does not lay out the cards side by side. To do that, you can 
 
 ```html
 <a href="https://github.com/SoufianoDev/github-readme-stats">
-  <img height=200 align="center" src="https://github-readme-stats.pages.dev/api?username=SoufianoDev" />
+  <img height=200 align="center" src="https://github-readme-stats.up.railway.app/api?username=SoufianoDev" />
 </a>
 <a href="https://github.com/SoufianoDev/convoychat">
-  <img height=200 align="center" src="https://github-readme-stats.pages.dev/api/top-langs?username=SoufianoDev&layout=compact&langs_count=8&card_width=320" />
+  <img height=200 align="center" src="https://github-readme-stats.up.railway.app/api/top-langs?username=SoufianoDev&layout=compact&langs_count=8&card_width=320" />
 </a>
 ```
 
@@ -762,10 +762,10 @@ By default, GitHub does not lay out the cards side by side. To do that, you can 
 <summary>:eyes: Show example</summary>
 
 <a href="https://github.com/SoufianoDev/github-readme-stats">
-  <img height=200 align="center" src="https://github-readme-stats.pages.dev/api?username=SoufianoDev" />
+  <img height=200 align="center" src="https://github-readme-stats.up.railway.app/api?username=SoufianoDev" />
 </a>
 <a href="https://github.com/SoufianoDev/convoychat">
-  <img height=200 align="center" src="https://github-readme-stats.pages.dev/api/top-langs?username=SoufianoDev&layout=compact&langs_count=8&card_width=320" />
+  <img height=200 align="center" src="https://github-readme-stats.up.railway.app/api/top-langs?username=SoufianoDev&layout=compact&langs_count=8&card_width=320" />
 </a>
 
 </details>
@@ -774,10 +774,10 @@ By default, GitHub does not lay out the cards side by side. To do that, you can 
 
 ```html
 <a href="https://github.com/SoufianoDev/github-readme-stats">
-  <img align="center" src="https://github-readme-stats.pages.dev/api/pin/?username=SoufianoDev&repo=github-readme-stats" />
+  <img align="center" src="https://github-readme-stats.up.railway.app/api/pin/?username=SoufianoDev&repo=github-readme-stats" />
 </a>
 <a href="https://github.com/SoufianoDev/convoychat">
-  <img align="center" src="https://github-readme-stats.pages.dev/api/pin/?username=SoufianoDev&repo=convoychat" />
+  <img align="center" src="https://github-readme-stats.up.railway.app/api/pin/?username=SoufianoDev&repo=convoychat" />
 </a>
 ```
 
@@ -785,10 +785,10 @@ By default, GitHub does not lay out the cards side by side. To do that, you can 
 <summary>:eyes: Show example</summary>
 
 <a href="https://github.com/SoufianoDev/github-readme-stats">
-  <img align="center" src="https://github-readme-stats.pages.dev/api/pin/?username=SoufianoDev&repo=github-readme-stats" />
+  <img align="center" src="https://github-readme-stats.up.railway.app/api/pin/?username=SoufianoDev&repo=github-readme-stats" />
 </a>
 <a href="https://github.com/SoufianoDev/convoychat">
-  <img align="center" src="https://github-readme-stats.pages.dev/api/pin/?username=SoufianoDev&repo=convoychat" />
+  <img align="center" src="https://github-readme-stats.up.railway.app/api/pin/?username=SoufianoDev&repo=convoychat" />
 </a>
 
 </details>
@@ -842,7 +842,7 @@ Then embed from your profile README:
 
 See more options and examples in the [GitHub Readme Stats Action README](https://github.com/readme-tools/github-readme-stats-action#readme).
 
-## Self-hosted (Cloudflare Pages/Other)
+## Self-hosted (Railway/Other)
 
 Running your own instance avoids public rate limits and gives you full control over caching, tokens, and private stats.
 
@@ -878,52 +878,45 @@ Selecting the right scopes for your token is important in case you want to displ
   * Pull requests: read-only
 * Click on `Generate token` and copy it.
 
-### On Cloudflare Pages
+### On Railway
 
-Cloudflare Pages provides a generous free tier with unlimited bandwidth, making it an excellent choice for hosting GitHub Readme Stats.
+[Railway](https://railway.app) is the recommended way to self-host GitHub Readme Stats. It detects Node.js projects automatically, provides a public URL, and makes it easy to manage environment variables.
 
 <details>
- <summary><b>:hammer_and_wrench: Step-by-step guide on deploying to Cloudflare Pages</b></summary>
+ <summary><b>:hammer_and_wrench: Step-by-step guide on deploying to Railway</b></summary>
 
 1.  Fork this repository to your GitHub account.
-2.  Go to [Cloudflare Dashboard](https://dash.cloudflare.com/) and sign in (or create a free account).
-3.  Navigate to **Workers & Pages** and click **Create**.
-4.  Select the **Pages** tab, then click **Connect to Git**.
-5.  Authorize Cloudflare to access your GitHub account and select your forked repository.
-6.  Configure the build settings:
-    - **Production branch**: `master` (or your default branch)
-    - **Build command**: *(leave empty)*
-    - **Build output directory**: `public`
-7.  Under **Environment variables**, add your PAT:
+2.  Go to [Railway](https://railway.app) and sign in (or create a free account).
+3.  Click **New Project** → **Deploy from GitHub repo** and select your forked repository.
+4.  Railway auto-detects the Node.js project and uses `npm start` to run the server (`node express.js`).
+5.  Once the initial deploy finishes, go to the **Variables** tab of your service and add your PAT:
     - Name: `PAT_1`, Value: *(your GitHub PAT from the [previous step](#first-step-get-your-personal-access-token-pat))*
-8.  Click **Save and Deploy**.
-9.  Once deployed, your instance will be available at `https://<your-project-name>.pages.dev/api`.
+    - You can also add `WHITELIST`, `GIST_WHITELIST`, `EXCLUDE_REPO`, `CACHE_SECONDS`, and `FETCH_MULTI_PAGE_STARS` (see [Available environment variables](#available-environment-variables)).
+6.  After adding variables, Railway will redeploy automatically.
+7.  Once deployed, go to the **Settings** tab → **Networking** → **Generate Domain** to get a public URL. Your instance will be available at `https://<your-app>.up.railway.app/api`.
 
 </details>
 
 > [!NOTE]
-> You can also deploy from the CLI using [Wrangler](https://developers.cloudflare.com/workers/wrangler/):
+> For local development, clone the repo and run:
 > ```bash
 > npm install
-> npm run pages:deploy
+> npm start
 > ```
-> For local development, run `npm run pages:dev` to start the local dev server.
+> The server listens on `http://localhost:9000` by default. Set the `PORT` environment variable to use a different port.
 
 ### On other platforms
 
 > [!WARNING]
-> This way of using GRS is not officially supported and was added to cater to some particular use cases where Cloudflare Pages could not be used. The support for this method, therefore, is limited.
+> This way of using GRS is not officially supported and was added to cater to some particular use cases where Railway could not be used. The support for this method, therefore, is limited.
 
 <details>
 <summary><b>:hammer_and_wrench: Step-by-step guide for deploying on other platforms</b></summary>
 
 1.  Fork or clone this repo as per your needs
-2.  Move `express` from the devDependencies to the dependencies section of `package.json`
-    <https://github.com/SoufianoDev/github-readme-stats/blob/ba7c2f8b55eac8452e479c8bd38b044d204d0424/package.json#L54-L61>
-3.  Run `npm i` if needed (initial setup)
-4.  Run `node express.js` to start the server, or set the entry point to `express.js` in `package.json` if you're deploying on a managed service
-    <https://github.com/SoufianoDev/github-readme-stats/blob/ba7c2f8b55eac8452e479c8bd38b044d204d0424/package.json#L11>
-5.  You're done 🎉
+2.  Run `npm install`
+3.  Run `npm start` to start the server, or set the start command to `node express.js` in your platform's configuration
+4.  You're done 🎉
     </details>
 
 ### Available environment variables
@@ -967,7 +960,7 @@ GitHub Readme Stats provides several environment variables that can be used to c
   </tbody>
 </table>
 
-See the [Cloudflare Pages documentation](https://developers.cloudflare.com/pages/configuration/environment-variables/) on adding these environment variables to your Cloudflare Pages instance.
+See the [Railway documentation](https://docs.railway.app/guides/variables) on adding these environment variables to your Railway service.
 
 > [!WARNING]
 > Please remember to redeploy your instance after making any changes to the environment variables so that the updates take effect. The changes will not be applied to the previous deployments.

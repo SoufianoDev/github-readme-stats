@@ -4,7 +4,6 @@ node_modules
 .idea/
 coverage
 benchmarks
-.wrangler
 
 # IDE
 .vscode/*

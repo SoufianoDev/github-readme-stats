@@ -6,14 +6,10 @@ import { logger } from "./log.js";
 // Script variables.
 
 // Count the number of GitHub API tokens available.
-// Computed lazily because in Cloudflare Pages Functions modules are
-// evaluated at cold start, before any request has populated process.env
-// with the values from the Pages configuration. Reading process.env
-// inside the function ensures we see the real env vars on every call.
-const getRetries = () => {
-  if (process.env.NODE_ENV === "test") return 7;
-  return Object.keys(process.env).filter((key) => /PAT_\d*$/.exec(key)).length;
-};
+const PATs = Object.keys(process.env).filter((key) =>
+  /PAT_\d*$/.exec(key),
+).length;
+const RETRIES = process.env.NODE_ENV === "test" ? 7 : PATs;
 
 /**
  * @typedef {import("axios").AxiosResponse} AxiosResponse Axios response.
@@ -29,8 +25,6 @@ const getRetries = () => {
  * @returns {Promise<any>} The response from the fetcher function.
  */
 const retryer = async (fetcher, variables, retries = 0) => {
-  const RETRIES = getRetries();
-
   if (!RETRIES) {
     throw new CustomError("No GitHub API tokens found", CustomError.NO_TOKENS);
   }
@@ -99,5 +93,5 @@ const retryer = async (fetcher, variables, retries = 0) => {
   }
 };
 
-export { retryer, getRetries as RETRIES };
+export { retryer, RETRIES };
 export default retryer;
