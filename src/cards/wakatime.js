@@ -8,7 +8,7 @@ import { createProgressNode, flexLayout } from "../common/render.js";
 import { wakatimeCardLocales } from "../translations.js";
 
 /** Import language colors. */
-import languageColors from "../common/languageColors.json";
+import languageColors from "../common/languageColors.js";
 
 const DEFAULT_CARD_WIDTH = 495;
 const MIN_CARD_WIDTH = 250;

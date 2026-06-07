@@ -14,7 +14,7 @@ import { icons } from "../common/icons.js";
 import { parseEmojis } from "../common/ops.js";
 
 /** Import language colors. */
-import languageColors from "../common/languageColors.json";
+import languageColors from "../common/languageColors.js";
 
 const ICON_SIZE = 16;
 const CARD_DEFAULT_WIDTH = 400;

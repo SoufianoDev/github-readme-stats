@@ -3,6 +3,7 @@ import fs from "fs";
 import jsYaml from "js-yaml";
 
 const LANGS_FILEPATH = "./src/common/languageColors.json";
+const LANGS_JS_FILEPATH = "./src/common/languageColors.js";
 
 //Retrieve languages from github linguist repository yaml file
 //@ts-ignore
@@ -26,5 +27,9 @@ axios
     fs.writeFileSync(
       LANGS_FILEPATH,
       JSON.stringify(languageColors, null, "    "),
+    );
+    fs.writeFileSync(
+      LANGS_JS_FILEPATH,
+      `export default ${JSON.stringify(languageColors, null, 2)};\n`,
     );
   });
