@@ -4,18 +4,78 @@
  * @file Compatibility adapter for running Vercel-style (req, res) handlers
  * on Cloudflare Workers / Pages Functions.
  *
- * The adapter wraps a Cloudflare Workers `EventContext` into Express-like
+ * The adapter wraps a Cloudflare Pages `EventContext` into Express-like
  * `req` and `res` objects so that existing API handlers can run unchanged.
+ *
+ * It also rebinds `process.env` to a Proxy that reads from a request-scoped
+ * store populated with `context.env` on every request. This is necessary
+ * because:
+ *   - With `nodejs_compat`, the runtime provides a `process` global whose
+ *     `env` is empty and not linked to Pages environment variables.
+ *   - Modules are evaluated once at cold start, before any request arrives,
+ *     so we cannot rely on mutating `process.env` at import time.
+ *   - Overwriting `globalThis.process` directly is unreliable across
+ *     runtimes, so we use a Proxy installed via `Object.defineProperty`.
  */
 
-// Polyfill `process` at module scope so that modules which read
-// `process.env` during initialization (e.g. src/common/envs.js)
-// do not crash on cold start before the first request arrives.
-if (typeof globalThis.process === "undefined") {
-  // @ts-ignore - partial polyfill, only env is needed
-  globalThis.process = { env: {} };
-} else if (!globalThis.process.env) {
-  globalThis.process.env = {};
+// Request-scoped store for environment variables. Populated in
+// `adaptRequest` from `context.env` and read through the `envProxy` below.
+let currentEnv = {};
+
+/**
+ * A Proxy that exposes `currentEnv` as a plain object. `Object.keys(env)`,
+ * `key in env`, and `env.KEY` all reflect the latest `currentEnv`.
+ *
+ * @type {Record<string, string>}
+ */
+const envProxy = new Proxy(currentEnv, {
+  get(_target, key) {
+    return currentEnv[key];
+  },
+  set(_target, key, value) {
+    currentEnv[key] = value;
+    return true;
+  },
+  deleteProperty(_target, key) {
+    return delete currentEnv[key];
+  },
+  has(_target, key) {
+    return key in currentEnv;
+  },
+  ownKeys() {
+    return Reflect.ownKeys(currentEnv);
+  },
+  getOwnPropertyDescriptor(_target, key) {
+    if (key in currentEnv) {
+      return {
+        enumerable: true,
+        configurable: true,
+        value: currentEnv[key],
+        writable: true,
+      };
+    }
+    return undefined;
+  },
+});
+
+// Install our Proxy as `process.env` (or install a minimal `process` if
+// the runtime does not provide one). This works regardless of whether
+// the runtime already defined `process` — `Object.defineProperty` with
+// `configurable: true` replaces the existing descriptor.
+try {
+  // @ts-ignore - partial polyfill, only env + versions are needed
+  Object.defineProperty(globalThis, "process", {
+    value: {
+      env: envProxy,
+      versions: { node: "20.0.0" },
+    },
+    writable: true,
+    configurable: true,
+  });
+} catch (_) {
+  // If defineProperty is blocked, fall back to direct assignment.
+  // @ts-ignore
+  globalThis.process = { env: envProxy, versions: { node: "20.0.0" } };
 }
 
 /**
@@ -29,15 +89,9 @@ if (typeof globalThis.process === "undefined") {
  * @returns {Promise<Response>} The Cloudflare Workers Response.
  */
 export async function adaptRequest(context, handler) {
-  // Polyfill process.env from the Cloudflare env binding so that modules
-  // which read process.env at import time (e.g. src/common/envs.js,
-  // src/common/cache.js) see the correct values.
-  if (typeof globalThis.process === "undefined") {
-    globalThis.process = { env: {} };
-  } else if (!globalThis.process.env) {
-    globalThis.process.env = {};
-  }
-  Object.assign(globalThis.process.env, context.env);
+  // Replace the request-scoped env store so the Proxy returns the
+  // current request's environment variables.
+  currentEnv = { ...(context.env || {}) };
 
   const url = new URL(context.request.url);
 
