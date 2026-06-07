@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import githubUsernameRegex from "github-username-regex";
+import dotenv from "dotenv";
 import { calculateRank } from "../calculateRank.js";
 import { retryer } from "../common/retryer.js";
 import { logger } from "../common/log.js";
@@ -12,7 +13,6 @@ import { request } from "../common/http.js";
 
 // Load .env file in Node.js environments (skipped in Cloudflare Workers).
 try {
-  const dotenv = await import("dotenv");
   dotenv.config();
 } catch (_) {
   // dotenv not available (e.g. Cloudflare Workers) — env vars come from context.env.
