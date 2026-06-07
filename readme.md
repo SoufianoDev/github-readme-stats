@@ -43,6 +43,7 @@
 </p>
 
 
+
 <p align="center">Love the project? Please consider <a href="https://www.paypal.me/SoufianoDev">donating</a> to help it improve!</p>
 
 <details>
